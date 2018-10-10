@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   
+
+  
   <title>Guigee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="8.30 一、关于flex布局 遇到类似需要分成两部分的可以使用，一部分自定义宽度（width），另一部分自适应即可（设置为flex：1）. 如图：  icon与content为同级元素，.icon部分为自定义宽度（不可变），.content部分的flex设置为1则是自适应的，以后可以按这种方式去将两部分布局，他们的父元素为.food-item ，需要将其display设置为flex。 简而言之，">
@@ -19,13 +21,15 @@
 <meta name="twitter:description" content="8.30 一、关于flex布局 遇到类似需要分成两部分的可以使用，一部分自定义宽度（width），另一部分自适应即可（设置为flex：1）. 如图：  icon与content为同级元素，.icon部分为自定义宽度（不可变），.content部分的flex设置为1则是自适应的，以后可以按这种方式去将两部分布局，他们的父元素为.food-item ，需要将其display设置为flex。 简而言之，">
 <meta name="twitter:image" content="e:/HTMLstudy/JavaScript_Dom/1535638932218.png">
   
+    <link rel="alternate" href="/atom.xml" title="Guigee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
-  
-
 </head>
 
 <body>
@@ -39,17 +43,19 @@
         <a href="/" id="logo">Guigee</a>
       </h1>
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">sometimes code， sometimes design</a>
-        </h2>
-      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
       </nav>
       <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
@@ -85,7 +91,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/10/关于flex布局/" data-id="cjn2useic0003cwo0982fxtc6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/10/关于flex布局/" data-id="cjn2wm4600003kwo0y3s1sji7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -116,12 +122,65 @@
 
 </section>
         
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/10/数组操作方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/几个题目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于几个迭代数组(ppt)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于vue-cli/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于transition过渡与动画/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
       </div>
       <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2018 Guigee<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -129,14 +188,23 @@
     </div>
     <nav id="mobile-nav">
   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
 </nav>
     
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
 
 <script src="/js/script.js"></script>
+
+
 
   </div>
 </body>

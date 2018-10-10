@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   
+
+  
   <title>Guigee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="8.31 一、关于better-scroll  第一步，在需要滚动的class类下，设置ref = ‘menuWrapper’, menuWrapper为接下来获取dom操作做准备 第二步，获取dom，在methods中定义一个滚动的方法，_initScroll(),在此方法中定义一个new BScroll实例，具体代码为 12345678_initScroll()&amp;#123;	this.menu">
@@ -17,13 +19,15 @@
 <meta name="twitter:title" content="Guigee">
 <meta name="twitter:description" content="8.31 一、关于better-scroll  第一步，在需要滚动的class类下，设置ref = ‘menuWrapper’, menuWrapper为接下来获取dom操作做准备 第二步，获取dom，在methods中定义一个滚动的方法，_initScroll(),在此方法中定义一个new BScroll实例，具体代码为 12345678_initScroll()&amp;#123;	this.menu">
   
+    <link rel="alternate" href="/atom.xml" title="Guigee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
-  
-
 </head>
 
 <body>
@@ -37,17 +41,19 @@
         <a href="/" id="logo">Guigee</a>
       </h1>
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">sometimes code， sometimes design</a>
-        </h2>
-      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
       </nav>
       <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
@@ -107,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/10/关于better-scroll/" data-id="cjn2usei30001cwo0kglisges" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/10/关于better-scroll/" data-id="cjn2wm45u0001kwo0if71pmd3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,12 +144,65 @@
 
 </section>
         
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/10/数组操作方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/几个题目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于几个迭代数组(ppt)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于vue-cli/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于transition过渡与动画/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
       </div>
       <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2018 Guigee<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -151,14 +210,23 @@
     </div>
     <nav id="mobile-nav">
   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
 </nav>
     
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
 
 <script src="/js/script.js"></script>
+
+
 
   </div>
 </body>
