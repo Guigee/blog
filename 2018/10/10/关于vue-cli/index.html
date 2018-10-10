@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="复习了Vue的入门基础，关于vue-cli的基本使用以及vue的基本用法 Vue-cli首先是安装脚手架工具，三条命令 注意的是3.0的版本将名称vue-cli替换成了@vue/cli； 创建项目时也换成了vue create hello-world，会被提示选取一个预设。你可以选默认的包含了基本的Babel + ESLint设置的预设，也可以选“手动选择特性”来选取需要的特性。  1234#安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/关于vue-cli/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="复习了Vue的入门基础，关于vue-cli的基本使用以及vue的基本用法 Vue-cli首先是安装脚手架工具，三条命令 注意的是3.0的版本将名称vue-cli替换成了@vue/cli； 创建项目时也换成了vue create hello-world，会被提示选取一个预设。你可以选默认的包含了基本的Babel + ESLint设置的预设，也可以选“手动选择特性”来选取需要的特性。  1234#安装">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-25T09:11:40.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="复习了Vue的入门基础，关于vue-cli的基本使用以及vue的基本用法 Vue-cli首先是安装脚手架工具，三条命令 注意的是3.0的版本将名称vue-cli替换成了@vue/cli； 创建项目时也换成了vue create hello-world，会被提示选取一个预设。你可以选默认的包含了基本的Babel + ESLint设置的预设，也可以选“手动选择特性”来选取需要的特性。  1234#安装">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于vue-cli" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/关于vue-cli/" class="article-date">
+  <time datetime="2018-10-10T06:14:39.482Z" itemprop="datePublished">2018-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>复习了Vue的入门基础，关于vue-cli的基本使用以及vue的基本用法</p>
+<h3 id="Vue-cli"><a href="#Vue-cli" class="headerlink" title="Vue-cli"></a>Vue-cli</h3><p>首先是安装脚手架工具，三条命令</p>
+<p>注意的是3.0的版本将名称vue-cli替换成了@vue/cli；</p>
+<p>创建项目时也换成了vue create hello-world，会被提示选取一个预设。你可以选默认的包含了基本的Babel + ESLint设置的预设，也可以选“手动选择特性”来选取需要的特性。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#安装脚手架</span><br><span class="line">npm install -g vue-cli</span><br><span class="line">#创建一个新的项目</span><br><span class="line">vue  init webpack my-project</span><br></pre></td></tr></table></figure>
+<h3 id="Vue基本用法"><a href="#Vue基本用法" class="headerlink" title="Vue基本用法"></a>Vue基本用法</h3><p>通过todolist这个小项目，几个值得注意的点</p>
+<p>1.vue项目中的data值一定要用函数来返回，不能定义成对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data: function () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.子组件与父组件之间通信，通过props来传递属性</p>
+<p>子组件想传递的值一定要在props中定义，父组件再去通过v-bind绑定那个值，这样才能的到子组件的值</p>
+<p>最重要的一个是$emit方法，子组件可以使用 $emit 触发父组件的自定义事件，最终的事件一定是绑定在父组件中的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: [<span class="string">'content'</span>, <span class="string">'index'</span>],</span><br><span class="line">  methods: &#123;</span><br><span class="line">    remove () &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'deleate'</span>, <span class="keyword">this</span>.index)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;listitem v-<span class="keyword">for</span>=<span class="string">"(item,index) in list"</span> :key=<span class="string">"index"</span> :content=<span class="string">"item"</span> :index=<span class="string">"index"</span> @deleate=<span class="string">"removeItem"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">listitem</span>&gt;</span></span></span><br><span class="line">......</span><br><span class="line">removeItem (index) &#123;</span><br><span class="line">  <span class="keyword">this</span>.list.splice(index, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.忘记的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.list.push(<span class="keyword">this</span>.inputvalue) <span class="comment">//将inputvalue的值插入到list数组中</span></span><br><span class="line"><span class="keyword">this</span>.list.splice(<span class="number">1</span>, <span class="number">1</span>) <span class="comment">//删除list数组中的第二项</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/10/关于vue-cli/" data-id="cjn2rhbhe0007bwo0zzy8vw1p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/10/关于几个迭代数组(ppt)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/10/关于transition过渡与动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/10/数组操作方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/几个题目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于几个迭代数组(ppt)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于vue-cli/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于transition过渡与动画/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

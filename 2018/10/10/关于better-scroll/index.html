@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="8.31 一、关于better-scroll  第一步，在需要滚动的class类下，设置ref = ‘menuWrapper’, menuWrapper为接下来获取dom操作做准备 第二步，获取dom，在methods中定义一个滚动的方法，_initScroll(),在此方法中定义一个new BScroll实例，具体代码为 12345678_initScroll()&amp;#123;	this.menu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/关于better-scroll/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="8.31 一、关于better-scroll  第一步，在需要滚动的class类下，设置ref = ‘menuWrapper’, menuWrapper为接下来获取dom操作做准备 第二步，获取dom，在methods中定义一个滚动的方法，_initScroll(),在此方法中定义一个new BScroll实例，具体代码为 12345678_initScroll()&amp;#123;	this.menu">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-31T16:33:07.955Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="8.31 一、关于better-scroll  第一步，在需要滚动的class类下，设置ref = ‘menuWrapper’, menuWrapper为接下来获取dom操作做准备 第二步，获取dom，在methods中定义一个滚动的方法，_initScroll(),在此方法中定义一个new BScroll实例，具体代码为 12345678_initScroll()&amp;#123;	this.menu">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于better-scroll" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/关于better-scroll/" class="article-date">
+  <time datetime="2018-10-10T06:14:39.402Z" itemprop="datePublished">2018-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>8.31</p>
+<p>一、关于better-scroll </p>
+<p>第一步，在需要滚动的class类下，设置ref = ‘menuWrapper’, menuWrapper为接下来获取dom操作做准备</p>
+<p>第二步，获取dom，在methods中定义一个滚动的方法，_initScroll(),在此方法中定义一个new BScroll实例，具体代码为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_initScroll()&#123;</span><br><span class="line">	<span class="keyword">this</span>.menuScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$refs.menuWrapper,&#123;&#125;)</span><br><span class="line">	<span class="keyword">this</span>.foodsScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$refs.foodsWrapper,&#123;</span><br><span class="line">		<span class="comment">//当 probeType 为 3 的时候，不仅在屏幕滑动的过程中，</span></span><br><span class="line">		<span class="comment">//而且在 momentum 滚动动画运行过程中实时派发 scroll 事件。</span></span><br><span class="line">		probeType: <span class="number">3</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，代码中this.$refs.menuWrapper相当于就是获取dom。此处有一个probeType属性，它是better-scroll 的一个属性，目的是在屏幕滑动的过程中实时的派发 scroll 事件 。</p>
+<p>第三步，将定义的滚动方法在获取数据（created()中获取json文件数据中）时调用，具体代码为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//注意此处的$nextTick()，必须使用它，否则会出错（具体原因未知）</span></span><br><span class="line">	<span class="keyword">this</span>._initScroll()</span><br><span class="line">	<span class="keyword">this</span>._calculateHeight() <span class="comment">//此处调用为另一处，不是滚动，下面会说</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>设置完成，这样就能滚动了。对了，一开始还要安装better-scroll依赖</p>
+<p>命令为： npm install better-scroll –D  （D的意思是安装在文件下，就不用在配置文件package.json中写依赖了）</p>
+<p>二、计算右侧区间的高度</p>
+<p>定义一个_calculateHeight()方法，然后在获取数据时调用，具体代码为 </p>
+<p>该方法的作用就是计算每个区间的高度，这个高度是递增的，把这些区间的高度都push到listHeight数组中</p>
+<p>一个小问题，例如两块区间，第一块高度为100，第二块高度为50，那么传入的第一块高度就为100，而第二块则为150，不是50，因为他的需求是递增的一个区间</p>
+<p>还有一个要注意的地方是，getElementsByClassName获取的是一个数组，在下面的代码中，foodList是一个数组。</p>
+<p>另外，clientHeight计算的是一个当前视图的一个高度，对于下面代码，就是每一个区间的高度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_calculateHeight()&#123;</span><br><span class="line">	<span class="keyword">let</span> foodList = <span class="keyword">this</span>.$refs.foodsWrapper.getElementsByClassName(<span class="string">"food-list-hook"</span>)</span><br><span class="line">	<span class="keyword">let</span> height = <span class="number">0</span></span><br><span class="line">	<span class="keyword">this</span>.listHeight.push(height) <span class="comment">//注意</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;foodList.length;i++)&#123;</span><br><span class="line">		height += foodList[i].clientHeight</span><br><span class="line">		<span class="keyword">this</span>.listHeight.push(height)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>三、右侧高度与左侧映射</p>
+<p>右侧每个区间的高度计算出来以后，我们需要思考的是怎样将实时滚动时的高度与左侧的菜单栏中的item映射</p>
+<p>因此，我们需要一个滚动事件’scroll’</p>
+<p>scroll事件应该写在滚动的方法中，即为_initScroll()中。</p>
+<p>第一步，在data中定义scrollY: 0，追踪右侧实时更新的高度 。代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">	 goods: [],</span><br><span class="line">	 listHeight: [], <span class="comment">//计算的右侧区间的高度，高度递增（固定的）</span></span><br><span class="line">	 scrollY: <span class="number">0</span> <span class="comment">//追踪右侧实时更新的高度</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二步，在_initScroll()方法中写’scroll’事件，this.foodsScroll.on(）相当于一个监听，对应foodsScroll实例，代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.foodsScroll.on(<span class="string">'scroll'</span>,(pos) =&gt; &#123;</span><br><span class="line">	<span class="keyword">this</span>.scrollY = <span class="built_in">Math</span>.abs(<span class="built_in">Math</span>.round(pos.y)) <span class="comment">//实时获取事件'scroll'滚动的高度</span></span><br><span class="line">	<span class="comment">// console.log(this.scrollY)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>第三步，在计算属性中写入一个方法currentIndex ()，此方法的目的是获取到每个区间的index值，然后通过scrollY变化而变化，代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">currentIndex() &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.listHeight.length;i++)&#123;</span><br><span class="line">		<span class="keyword">let</span> length1 = <span class="keyword">this</span>.listHeight[i]</span><br><span class="line">		<span class="keyword">let</span> length2 = <span class="keyword">this</span>.listHeight[i+<span class="number">1</span>]</span><br><span class="line">		<span class="keyword">if</span>((<span class="keyword">this</span>.scrollY&gt;=length1&amp;&amp;<span class="keyword">this</span>.scrollY&lt;length2)||!length2)&#123;</span><br><span class="line">			<span class="keyword">return</span> i</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span> <span class="comment">//注意</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里充分利用了Vue的computed属性，scrollY变化，返回的值(i)也跟着变化。</p>
+<p>这里也引出一个computed与methods的区别，都是在其中写方法，不同的是computed可以调用多次，而methods中的方法仅调用一次。</p>
+<p>第四步，获取到每个区间的index值之后，在HTML中通过:class绑定一个动态的类current，他既是一个类，也是一个对象。然后判断currentIndex===index（此处的index是v-for遍历goods时获取的索引值），使其与currentIndex返回的i值对应，一旦对应，则执行类current的样式。代码为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"menu-wrapper"</span> <span class="attr">ref</span>=<span class="string">"menuWrapper"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in goods"</span> <span class="attr">:key</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"menu-item"</span> <span class="attr">:class</span>=<span class="string">"				  &#123;'current':currentIndex===index&#125;"</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!-- 此处'current'为一个对象 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">"item.type&gt;0"</span> <span class="attr">class</span>=<span class="string">"icon"</span> <span class="attr">:class</span>=<span class="string">"classMap[item.type]"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">				&#123;&#123;item.name&#125;&#125;</span><br><span class="line">			<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>至此，最终完成的结果为右侧滑动，左侧变化。</p>
+<p>下一步需要做的是左侧点击，右侧滑动。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/10/关于better-scroll/" data-id="cjn2rhbhi0008bwo0hushoom9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/10/关于flex布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/10/shopcart购物车组件踩坑指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/10/数组操作方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/几个题目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于几个迭代数组(ppt)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于vue-cli/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于transition过渡与动画/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

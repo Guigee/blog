@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="9.4 关于transition过渡与动画首先第一个坑是之前Vue1.0的时候transition是被当作属性定义在标签里面的，现在2.0是一个transition标签 具体用法(官方文档)&amp;lt;transition&amp;gt; 元素作为单个元素/组件的过渡效果。&amp;lt;transition&amp;gt; 只会把过渡效果应用到其包裹的内容上，而不会额外渲染 DOM 元素，也不会出现在检测过的组件层级中。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/关于transition过渡与动画/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="9.4 关于transition过渡与动画首先第一个坑是之前Vue1.0的时候transition是被当作属性定义在标签里面的，现在2.0是一个transition标签 具体用法(官方文档)&amp;lt;transition&amp;gt; 元素作为单个元素/组件的过渡效果。&amp;lt;transition&amp;gt; 只会把过渡效果应用到其包裹的内容上，而不会额外渲染 DOM 元素，也不会出现在检测过的组件层级中。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/lenovo/AppData/Local/Temp/1536130891950.png">
+<meta property="og:updated_time" content="2018-09-05T07:43:29.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="9.4 关于transition过渡与动画首先第一个坑是之前Vue1.0的时候transition是被当作属性定义在标签里面的，现在2.0是一个transition标签 具体用法(官方文档)&amp;lt;transition&amp;gt; 元素作为单个元素/组件的过渡效果。&amp;lt;transition&amp;gt; 只会把过渡效果应用到其包裹的内容上，而不会额外渲染 DOM 元素，也不会出现在检测过的组件层级中。">
+<meta name="twitter:image" content="c:/Users/lenovo/AppData/Local/Temp/1536130891950.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于transition过渡与动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/关于transition过渡与动画/" class="article-date">
+  <time datetime="2018-10-10T06:14:39.441Z" itemprop="datePublished">2018-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>9.4</p>
+<h3 id="关于transition过渡与动画"><a href="#关于transition过渡与动画" class="headerlink" title="关于transition过渡与动画"></a>关于transition过渡与动画</h3><p>首先第一个坑是之前Vue1.0的时候transition是被当作属性定义在标签里面的，现在2.0是一个transition标签</p>
+<h4 id="具体用法-官方文档"><a href="#具体用法-官方文档" class="headerlink" title="具体用法(官方文档)"></a>具体用法(官方文档)</h4><p><code>&lt;transition&gt;</code> 元素作为单个元素/组件的过渡效果。<code>&lt;transition&gt;</code> 只会把过渡效果应用到其包裹的内容上，而不会额外渲染 DOM 元素，也不会出现在检测过的组件层级中。 </p>
+<h4 id="过渡的类名"><a href="#过渡的类名" class="headerlink" title="过渡的类名"></a>过渡的类名</h4><p>在进入/离开的过渡中，会有 6 个 class 切换。 使用它们的默认前缀是v-，如果使用了<transition name="move">，那么使用它的v-enter会变成move-enter。</transition></p>
+<h5 id="v-enter"><a href="#v-enter" class="headerlink" title="v-enter :"></a>v-enter :</h5><p>定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。 </p>
+<h5 id="v-enter-active"><a href="#v-enter-active" class="headerlink" title="v-enter-active :"></a>v-enter-active :</h5><p>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。<strong>这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数</strong> </p>
+<h5 id="v-enter-to"><a href="#v-enter-to" class="headerlink" title="v-enter-to :"></a>v-enter-to :</h5><p>( 2.1.8版及以上) 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 <code>v-enter</code> 被移除)，在过渡/动画完成之后移除。 </p>
+<h5 id="v-leave"><a href="#v-leave" class="headerlink" title="v-leave :"></a>v-leave :</h5><p>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。 </p>
+<h5 id="v-leave-active"><a href="#v-leave-active" class="headerlink" title="v-leave-active :"></a>v-leave-active :</h5><p>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。<strong>这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</strong> (transition: all 0.4s linear)</p>
+<h5 id="v-leave-to"><a href="#v-leave-to" class="headerlink" title="v-leave-to :"></a>v-leave-to :</h5><p>(2.1.8版及以上 )定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 <code>v-leave</code> 被删除)，在过渡/动画完成之后移除。 </p>
+<h4 id="一张清晰的图"><a href="#一张清晰的图" class="headerlink" title="一张清晰的图"></a>一张清晰的图</h4><p><img src="C:\Users\lenovo\AppData\Local\Temp\1536130891950.png" alt="1536130891950"></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>具体在cartcontrol组件中，使用css进行过渡</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&amp;.move-enter-active, &amp;.move-leave-active //进入与离开过程中变化（过渡），重点写！！！</span><br><span class="line">	<span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 0<span class="selector-class">.4s</span> <span class="selector-tag">linear</span></span><br><span class="line">    <span class="selector-class">.inner</span></span><br><span class="line">       <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 0<span class="selector-class">.4s</span> <span class="selector-tag">linear</span></span><br><span class="line">&amp;.move-enter, &amp;.move-leave-to //进入开始与离开结束时的状态</span><br><span class="line">     <span class="selector-tag">opacity</span>: 0</span><br><span class="line">     transform: translate3D(24px,0,0) //24px代表移动的距离</span><br><span class="line">     <span class="selector-class">.inner</span></span><br><span class="line">        ransform: rotate(360deg) //旋转的角度</span><br></pre></td></tr></table></figure>
+<p>上面的例子中<transition>包裹了两层<div></div></transition></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"move"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cart-decrease"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第一层div负责平移，第二层span负责旋转。两层的move-enter-active和move-leave-active都设置了一个过渡；然后在开始与结束都设置了最终的状态与动画（transform设置动画），第一层div平移了24px，第二层span旋转360度</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/10/关于transition过渡与动画/" data-id="cjn2rhbh10001bwo0eebq17oj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/10/关于vue-cli/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/10/关于flex布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/10/数组操作方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/几个题目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于几个迭代数组(ppt)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于vue-cli/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/关于transition过渡与动画/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
